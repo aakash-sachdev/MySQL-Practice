@@ -9,7 +9,6 @@ FROM employee_demographics
 GROUP BY gender
 ;
 
-
 -- let's try to filter on the avg age using where
 
 SELECT gender, AVG(age)
@@ -26,8 +25,21 @@ GROUP BY gender
 HAVING AVG(age) > 40
 ;
 
+--   
 SELECT gender, AVG(age) as AVG_age
 FROM employee_demographics
 GROUP BY gender
 HAVING AVG_age > 40
 ;
+
+-- e.g -  WHERE and HAVING together 
+-- Filter at the row level with the Where clause
+-- Filter at aggregate function level and only work after the group by
+SELECT occupation, AVG(salary)
+FROM employee_salary
+WHERE occupation LIKE '%Manager%'
+GROUP BY occupation
+HAVING AVG(salary) > 75000
+;
+
+
