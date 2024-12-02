@@ -11,7 +11,7 @@ FROM employee_demographics
 GROUP BY gender
 ;
 
-
+-- Error contain non-agg coloum-- 
 SELECT first_name
 FROM employee_demographics
 GROUP BY gender
@@ -35,10 +35,17 @@ FROM employee_demographics
 GROUP BY gender
 ;
 
-SELECT gender, MIN(age), MAX(age), COUNT(age),AVG(age)
+-- Different aggregate functions 
+SELECT gender, AVG(age), MAX(age), MIN(age), COUNT(age)
 FROM employee_demographics
 GROUP BY gender
 ;
+
+
+-- SELECT gender, MIN(age), MAX(age), COUNT(age),AVG(age)
+-- FROM employee_demographics
+-- GROUP BY gender
+-- ;
 
 
 #10 - The ORDER BY clause:
@@ -47,16 +54,6 @@ GROUP BY gender
 
 #The ORDER BY keyword sorts the records in ascending order by default. To sort the records in descending order, use the DESC keyword.
 
-
-#Customer table
-#First ordering by one column
-SELECT *
-FROM customers
-ORDER BY first_name;
-
-#first name is ordered from a - z or Ascending.
-
-#Change that by specifying DESC after it
 SELECT *
 FROM employee_demographics;
 
@@ -80,10 +77,7 @@ SELECT *
 FROM employee_demographics
 ORDER BY gender DESC, age DESC;
 
-
-
 #spell out the column names. actually just use their column position
-
 #State is in position 8 and money is in 9, use those as well.
 SELECT *
 FROM employee_demographics
